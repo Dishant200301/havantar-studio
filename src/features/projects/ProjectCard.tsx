@@ -23,14 +23,14 @@ export default function ProjectCard({ project, tall, className }: Props) {
           src={project.image}
           alt={project.title}
           className={cn(
-            "w-full object-cover h-[380px] sm:h-[480px] lg:h-[520px] xl:h-[550px] transition-transform duration-[900ms] ease-[cubic-bezier(.16,1,0.3,1)] group-hover:scale-[1.04]",
+            "w-full object-cover h-[380px] sm:h-[480px] lg:h-[520px] xl:h-[550px] transition-transform duration-900 ease-[cubic-bezier(.16,1,0.3,1)] group-hover:scale-[1.04]",
           )}
         />
       </div>
       <div className="flex items-start justify-between gap-4">
         <div>
           <h3 className="font-display font-medium text-[18px] md:text-[24px] leading-[23px] md:leading-[31px] text-[#4F4742] uppercase transition-colors duration-300">
-            <span className="relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:h-[1px] after:w-full after:bg-current after:origin-right after:scale-x-0 after:transition-transform after:duration-400 after:ease-[cubic-bezier(.7,0,.3,1)] group-hover:after:origin-left group-hover:after:scale-x-100">
+            <span className="relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:h-px after:w-full after:bg-current after:origin-right after:scale-x-0 after:transition-transform after:duration-400 after:ease-[cubic-bezier(.7,0,.3,1)] group-hover:after:origin-left group-hover:after:scale-x-100">
               {project.title}
             </span>
           </h3>

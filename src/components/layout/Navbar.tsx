@@ -78,7 +78,7 @@ export default function Navbar() {
               <span
                 className={cn(
                   "block h-[1.5px] w-6 bg-[#4F4742] transition-all duration-500",
-                  open && "-translate-y-[3.75px] -rotate-45"
+                  open && "translate-y-[-3.75px] -rotate-45"
                 )}
               />
             </button>

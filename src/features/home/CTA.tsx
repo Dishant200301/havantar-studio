@@ -13,7 +13,7 @@ export default function CTA() {
         className="relative rounded-2xl overflow-hidden min-h-[540px] flex flex-col justify-between p-8 lg:p-14"
       >
         <div className="absolute inset-0 ph" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-black/10" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/30 to-black/10" />
 
         <FadeIn delay={0.2} className="relative max-w-2xl text-[#F0EBE6]">
           <p className="uppercase tracking-tight" style={{ fontSize: "clamp(28px,4vw,48px)", lineHeight: 1.1 }}>

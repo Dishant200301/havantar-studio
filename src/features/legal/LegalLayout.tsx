@@ -17,7 +17,7 @@ export default function LegalLayout({ title, updated, children }: Props) {
         <SplitHeading as="h1" className="uppercase font-medium text-[#4F4742]" type="words">
           <span style={{ fontSize: "clamp(34px,5vw,64px)", lineHeight: 1.05 }}>{title}</span>
         </SplitHeading>
-        <FadeIn className="mt-3 uppercase text-[12px] tracking-[0.12em] text-[#7a706a]">
+        <FadeIn className="mt-3 uppercase text-[12px] tracking-[0.12em] text-muted-foreground">
           Last updated: {updated}
         </FadeIn>
         <FadeIn className="mt-10 space-y-6 text-[#4F4742] leading-relaxed">

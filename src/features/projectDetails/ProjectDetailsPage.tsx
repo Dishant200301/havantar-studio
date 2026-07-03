@@ -26,13 +26,13 @@ export default function ProjectDetailsPage() {
     <>
       <SEO title={project.title} description={project.description} />
 
-      <section className="relative h-[88vh] min-h-[380px] overflow-hidden rounded-[12px] mx-[12px] mb-[12px] lg:mx-[12px] lg:my-[8px]">
+      <section className="relative h-[88vh] min-h-[380px] overflow-hidden rounded-lg mx-[12px] mb-[12px] lg:mx-[12px] lg:my-[8px]">
         <img
           src={project.image}
           alt={project.title}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/15 to-transparent" />
         <div className="relative max-w-[1600px] mx-auto h-full flex flex-col justify-end py-4 px-2 md:p-6 lg:p-10">
           <SplitHeading as="h1" className="text-[#F0EBE6] font-normal tracking-tight text-[32px] leading-[35px] md:text-[56px] md:leading-[62px] pb-2 text-center lg:text-left" type="words">
             {project.title}
@@ -125,23 +125,23 @@ export default function ProjectDetailsPage() {
             </p>
             <div className="border-t border-[#6f6863] pt-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 text-[#4F4742]">
               <div>
-                <div className="uppercase text-[14px] md:text-[16px] tracking-[0.1em] text-[#4F4742]/90 mb-2 font-display font-normal leading-[18px] md:leading-[22px]">Project Owners</div>
+                <div className="uppercase text-[14px] md:text-[16px] tracking-widest text-[#4F4742]/90 mb-2 font-display font-normal leading-[18px] md:leading-[22px]">Project Owners</div>
                 <div className="text-[17px] md:text-[20px] font-display font-normal leading-[22px] md:leading-[26px] text-[#4F4742]">{project.owner}</div>
               </div>
               <div>
-                <div className="uppercase text-[14px] md:text-[16px] tracking-[0.1em] text-[#4F4742]/90 mb-2 font-display font-normal leading-[18px] md:leading-[22px]">Budget</div>
+                <div className="uppercase text-[14px] md:text-[16px] tracking-widest text-[#4F4742]/90 mb-2 font-display font-normal leading-[18px] md:leading-[22px]">Budget</div>
                 <div className="text-[17px] md:text-[20px] font-display font-normal leading-[22px] md:leading-[26px] text-[#4F4742]">{project.budget}</div>
               </div>
               <div>
-                <div className="uppercase text-[14px] md:text-[16px] tracking-[0.1em] text-[#4F4742]/90 mb-2 font-display font-normal leading-[18px] md:leading-[22px]">Services</div>
+                <div className="uppercase text-[14px] md:text-[16px] tracking-widest text-[#4F4742]/90 mb-2 font-display font-normal leading-[18px] md:leading-[22px]">Services</div>
                 <div className="text-[17px] md:text-[20px] font-display font-normal leading-[22px] md:leading-[26px] text-[#4F4742]">{project.services}</div>
               </div>
               <div>
-                <div className="uppercase text-[14px] md:text-[16px] tracking-[0.1em] text-[#4F4742]/90 mb-2 font-display font-normal leading-[18px] md:leading-[22px]">Surface</div>
+                <div className="uppercase text-[14px] md:text-[16px] tracking-widest text-[#4F4742]/90 mb-2 font-display font-normal leading-[18px] md:leading-[22px]">Surface</div>
                 <div className="text-[17px] md:text-[20px] font-display font-normal leading-[22px] md:leading-[26px] text-[#4F4742]">{project.surface}</div>
               </div>
               <div className="col-span-1 md:col-span-2">
-                <div className="uppercase text-[14px] md:text-[16px] tracking-[0.1em] text-[#4F4742]/90 mb-2 font-display font-normal leading-[18px] md:leading-[22px]">Address</div>
+                <div className="uppercase text-[14px] md:text-[16px] tracking-widest text-[#4F4742]/90 mb-2 font-display font-normal leading-[18px] md:leading-[22px]">Address</div>
                 <div className="text-[17px] md:text-[20px] font-display font-normal leading-[22px] md:leading-[26px] text-[#4F4742]">{project.address}</div>
               </div>
             </div>
@@ -159,7 +159,7 @@ export default function ProjectDetailsPage() {
           {others.map((o, i) => (
             <FadeIn key={o.slug} delay={i * 0.05}>
               <Link to={`/projects/${o.slug}`} className="group block">
-                <div className="aspect-[16/12] xl:aspect-[16/10] rounded-[8px] overflow-hidden bg-[#e6dfd6] mb-3">
+                <div className="aspect-16/12 xl:aspect-16/10 rounded-md overflow-hidden bg-[#e6dfd6] mb-3">
                   <img
                     src={o.image}
                     alt={o.title}

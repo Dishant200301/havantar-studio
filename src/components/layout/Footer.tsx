@@ -170,7 +170,7 @@ export default function Footer() {
         </div>
 
         {/* Footer image */}
-        <div className="aspect-[16/6] w-full overflow-hidden">
+        <div className="aspect-16/6 w-full overflow-hidden">
           <img
             src="/images/common/footer.webp"
             alt="HavAntar Studio"

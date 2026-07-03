@@ -20,7 +20,7 @@ export default function ProjectsPage() {
       <SEO title="Projects" description="Selected work by HavAntar Studio — residential and commercial architecture and interior design." />
 
       {/* Banner */}
-      <section className="relative h-[88vh] min-h-[380px] overflow-hidden rounded-[12px] mx-[12px] mb-[12px] lg:mx-[12px] lg:my-[8px]">
+      <section className="relative h-[88vh] min-h-[380px] overflow-hidden rounded-lg mx-[12px] mb-[12px] lg:mx-[12px] lg:my-[8px]">
         <div className="absolute inset-0">
           <img
             src="/images/project/hero.webp"
@@ -52,13 +52,13 @@ export default function ProjectsPage() {
           <h2 className="uppercase text-[#4F4742] font-medium text-[24px] leading-[26px] md:text-[30px] md:leading-[36px] lg:text-[40px] lg:leading-[52px] tracking-[-0.4px]">
             Projects that define space
           </h2>
-          <p className="uppercase mt-4 text-[12px] leading-[14px] tracking-[-0.3px] md:text-[14px] md:leading-[16px] lg:text-[16px] lg:leading-[21px] text-[#7a706a]">
+          <p className="uppercase mt-4 text-[12px] leading-[14px] tracking-[-0.3px] md:text-[14px] md:leading-[16px] lg:text-[16px] lg:leading-[21px] text-muted-foreground">
             Explore our portfolio of architectural projects crafted with precision, purpose, and attention to detail.
           </p>
         </FadeIn>
 
         <FadeIn className="flex justify-center lg:justify-start mb-10 max-w-full">
-          <div className="inline-flex items-center p-1 bg-white rounded-[8px] gap-0.5 sm:gap-1 max-w-full">
+          <div className="inline-flex items-center p-1 bg-white rounded-md gap-0.5 sm:gap-1 max-w-full">
             {filters.map((v) => (
               <button
                 key={v}
@@ -66,7 +66,7 @@ export default function ProjectsPage() {
                 className={cn(
                   "px-3.5 py-1 text-[13px] leading-[18px] sm:px-6 sm:py-1.5 sm:text-[16px] sm:leading-[21px] font-medium font-display uppercase transition-all duration-300 cursor-pointer select-none whitespace-nowrap",
                   f === v
-                    ? "bg-[#504843] text-white rounded-[6px]"
+                    ? "bg-[#504843] text-white rounded-sm"
                     : "bg-transparent text-[#4F4742]/55 hover:text-[#4F4742]"
                 )}
               >
