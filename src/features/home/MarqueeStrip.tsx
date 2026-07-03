@@ -1,23 +1,22 @@
 const items = [
+  "Award winning designs",
+  "100% Client satisfaction",
   "150+ Projects Completed",
   "12+ Years Experience",
-  "Award Winning Designs",
-  "100% Client Satisfaction",
 ];
 
 export default function MarqueeStrip() {
   const track = [...items, ...items, ...items, ...items];
   return (
-    <section className="border-y border-[#4F4742]/15 py-6 overflow-hidden bg-[#F0EBE6]">
-      <div className="flex whitespace-nowrap animate-marquee">
+    <section className="py-4 overflow-hidden">
+      <div className="flex whitespace-nowrap items-center gap-6 animate-[marquee_10s_linear_infinite]">
         {track.map((t, i) => (
-          <span
-            key={i}
-            className="uppercase text-[#4F4742] px-10"
-            style={{ fontSize: 23, lineHeight: "31px", fontFamily: "Inter, sans-serif", fontWeight: 400 }}
-          >
-            {t}
-          </span>
+          <div key={i} className="flex items-center gap-6 shrink-0">
+            <span className="uppercase text-[#4F4742] text-[12px] lg:text-[22px] leading-[16px] lg:leading-[31px] font-normal tracking-[-0.3px] font-inter">
+              {t}
+            </span>
+            <div className="w-1 h-1 lg:w-1.5 lg:h-1.5 rounded-full border-[1.5px] border-[#4F4742] shrink-0" />
+          </div>
         ))}
       </div>
     </section>

@@ -1,10 +1,11 @@
 import { useState, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import SEO from "@/components/common/SEO";
-import SplitHeading from "@/components/common/SplitHeading";
 import FadeIn from "@/components/common/FadeIn";
 import ProjectCard from "./ProjectCard";
 import { projects } from "./projectsData";
 import { cn } from "@/lib/utils";
+import MarqueeStrip from "../home/MarqueeStrip";
 
 const filters = ["All", "Residential", "Commercial"] as const;
 
@@ -19,54 +20,78 @@ export default function ProjectsPage() {
       <SEO title="Projects" description="Selected work by HavAntar Studio — residential and commercial architecture and interior design." />
 
       {/* Banner */}
-      <section className="relative h-[52vh] min-h-[380px] overflow-hidden">
-        <div className="ph absolute inset-0" />
-        <div className="absolute inset-0 bg-black/25" />
-        <div className="relative h-full flex items-center justify-center px-6">
-          <SplitHeading
-            as="h1"
-            className="uppercase text-[#F0EBE6] font-medium tracking-tight leading-[1] text-center"
-            type="words"
-          >
-            <span style={{ fontSize: "clamp(44px,7vw,96px)" }}>Project Portfolio</span>
-          </SplitHeading>
+      <section className="relative h-[88vh] min-h-[380px] overflow-hidden rounded-[12px] mx-[12px] mb-[12px] lg:mx-[12px] lg:my-[8px]">
+        <div className="absolute inset-0">
+          <img
+            src="/images/project/hero.webp"
+            className="w-full h-full object-cover"
+            alt="Project Portfolio Hero"
+          />
         </div>
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="relative h-full flex items-center justify-center px-6">
+          <FadeIn>
+            <h1 className="uppercase text-[#F0EBE6] font-normal tracking-[-0.4px] leading-none text-center text-[36px] sm:text-[56px] md:text-[76px] lg:text-[80px]">
+              PROJECT PORTFOLIO
+            </h1>
+          </FadeIn>
+        </div>
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1.5, ease: "linear" }}
+          style={{ originX: 0.5 }}
+          className="absolute bottom-16 left-10 right-10 border-b border-[#F0EBE6]"
+        />
       </section>
 
-      <section className="px-6 lg:px-16 py-20">
-        <FadeIn className="text-center max-w-2xl mx-auto mb-8">
-          <h2 className="uppercase text-[#4F4742] font-medium" style={{ fontSize: "clamp(28px,4vw,52px)", lineHeight: 1.05 }}>
+      <MarqueeStrip/>
+
+      <section className="px-4 lg:px-6 xl:px-8 py-20 max-w-[1600px] mx-auto">
+        <FadeIn className="text-center lg:max-w-2xl mx-auto mb-10">
+          <h2 className="uppercase text-[#4F4742] font-medium text-[24px] leading-[26px] md:text-[30px] md:leading-[36px] lg:text-[40px] lg:leading-[52px] tracking-[-0.4px]">
             Projects that define space
           </h2>
-          <p className="mt-4 uppercase text-[13px] tracking-[0.1em] text-[#7a706a]">
-            A curated selection of residential and commercial work
+          <p className="uppercase mt-4 text-[12px] leading-[14px] tracking-[-0.3px] md:text-[14px] md:leading-[16px] lg:text-[16px] lg:leading-[21px] text-[#7a706a]">
+            Explore our portfolio of architectural projects crafted with precision, purpose, and attention to detail.
           </p>
         </FadeIn>
 
-        <FadeIn className="flex justify-center gap-2 mb-12">
-          {filters.map((v) => (
-            <button
-              key={v}
-              onClick={() => setF(v)}
-              className={cn(
-                "px-4 py-2 rounded-full text-[12px] uppercase tracking-[0.1em] transition-colors",
-                f === v
-                  ? "bg-[#504843] text-[#F0EBE6]"
-                  : "bg-transparent text-[#4F4742] border border-[#4F4742]/30 hover:bg-[#4F4742]/5"
-              )}
-            >
-              {v}
-            </button>
-          ))}
+        <FadeIn className="flex justify-center lg:justify-start mb-10 max-w-full">
+          <div className="inline-flex items-center p-1 bg-white rounded-[8px] gap-0.5 sm:gap-1 max-w-full">
+            {filters.map((v) => (
+              <button
+                key={v}
+                onClick={() => setF(v)}
+                className={cn(
+                  "px-3.5 py-1 text-[13px] leading-[18px] sm:px-6 sm:py-1.5 sm:text-[16px] sm:leading-[21px] font-medium font-display uppercase transition-all duration-300 cursor-pointer select-none whitespace-nowrap",
+                  f === v
+                    ? "bg-[#504843] text-white rounded-[6px]"
+                    : "bg-transparent text-[#4F4742]/55 hover:text-[#4F4742]"
+                )}
+              >
+                {v}
+              </button>
+            ))}
+          </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {shown.map((p, i) => (
-            <FadeIn key={p.slug} delay={i * 0.06}>
-              <ProjectCard project={p} />
-            </FadeIn>
-          ))}
-        </div>
+        <motion.div layout className="grid lg:grid-cols-2 gap-6 md:gap-6">
+          <AnimatePresence mode="popLayout">
+            {shown.map((p) => (
+              <motion.div
+                layout
+                key={p.slug}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <ProjectCard project={p} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </section>
     </>
   );

@@ -14,30 +14,34 @@ export default function ProjectCard({ project, tall, className }: Props) {
     <Link
       to={`/projects/${project.slug}`}
       className={cn(
-        "group block rounded-xl overflow-hidden bg-[#e6dfd6]",
+        "group block w-full mx-auto lg:max-w-none lg:mx-0",
         className
       )}
     >
-      <div className="relative overflow-hidden">
-        <div
+      <div className="relative overflow-hidden mb-4 bg-[#e6dfd6]">
+        <img
+          src={project.image}
+          alt={project.title}
           className={cn(
-            "ph w-full transition-transform duration-[900ms] ease-[cubic-bezier(.7,0,.15,1)] group-hover:scale-[1.05]",
-            tall ? "aspect-[4/5]" : "aspect-[4/3.2]"
+            "w-full object-cover h-[380px] sm:h-[480px] lg:h-[520px] xl:h-[550px] transition-transform duration-[900ms] ease-[cubic-bezier(.16,1,0.3,1)] group-hover:scale-[1.04]",
           )}
         />
       </div>
-      <div className="flex items-start justify-between gap-4 p-5 bg-[#F0EBE6]">
+      <div className="flex items-start justify-between gap-4">
         <div>
-          <div className="uppercase text-[13px] tracking-[0.1em] text-[#4F4742] mb-1">
-            <span className="underline-lr">{project.title}</span>
-          </div>
-          <div className="text-[12px] text-[#7a706a]">
-            {project.category} · {project.location} · {project.year}
+          <h3 className="font-display font-medium text-[18px] md:text-[24px] leading-[23px] md:leading-[31px] text-[#4F4742] uppercase transition-colors duration-300">
+            <span className="relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:h-[1px] after:w-full after:bg-current after:origin-right after:scale-x-0 after:transition-transform after:duration-400 after:ease-[cubic-bezier(.7,0,.3,1)] group-hover:after:origin-left group-hover:after:scale-x-100">
+              {project.title}
+            </span>
+          </h3>
+          <div className="mt-1 font-display font-medium text-[14px] md:text-[16px] leading-[22px] md:leading-[26px] text-[#57504B]">
+            <div>{project.category} Architecture</div>
+            <div>{project.location}, {project.year}</div>
           </div>
         </div>
-        <span className="relative w-10 h-10 rounded-full border border-[#4F4742]/40 overflow-hidden flex items-center justify-center shrink-0">
-          <ArrowUpRight className="w-4 h-4 text-[#4F4742] absolute transition-transform duration-500 ease-[cubic-bezier(.7,0,.15,1)] group-hover:translate-x-6 group-hover:-translate-y-6" />
-          <ArrowUpRight className="w-4 h-4 text-[#4F4742] absolute -translate-x-6 translate-y-6 transition-transform duration-500 ease-[cubic-bezier(.7,0,.15,1)] group-hover:translate-x-0 group-hover:translate-y-0" />
+        <span className="relative w-8 h-8 md:w-10 md:h-10 rounded-full border border-[#4F4742]/40 overflow-hidden flex items-center justify-center shrink-0 transition-colors duration-300 group-hover:bg-[#504843] group-hover:border-transparent group-hover:text-white text-[#4F4742]">
+          <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 absolute transition-transform duration-500 ease-[cubic-bezier(.16,1,0.3,1)] group-hover:translate-x-6 group-hover:-translate-y-6" />
+          <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 absolute -translate-x-6 translate-y-6 transition-transform duration-500 ease-[cubic-bezier(.16,1,0.3,1)] group-hover:translate-x-0 group-hover:translate-y-0" />
         </span>
       </div>
     </Link>

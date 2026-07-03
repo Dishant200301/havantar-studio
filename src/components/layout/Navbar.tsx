@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-50 bg-[#F0EBE6]">
-        <div className="mx-auto flex h-[68px] items-center justify-between px-5 lg:px-10">
+        <div className="mx-auto flex h-[68px] items-center justify-between px-4 md:px-4 lg:px-6 xl:px-8 max-w-[1600px]">
           {/* Left: nav (desktop) or brand (mobile) */}
           <div className="flex items-center gap-8 flex-1">
             <nav className="hidden lg:flex items-center gap-8">
@@ -32,7 +32,7 @@ export default function Navbar() {
                 <Link
                   key={l.label}
                   to={l.to}
-                  className="link-slide text-[13px] leading-[15px] font-medium uppercase text-[#4F4742]"
+                  className="link-slide text-[14px] leading-[15px] font-medium uppercase text-[#4F4742]"
                 >
                   <span className="base">{l.label}</span>
                   <span className="dup" aria-hidden>
@@ -43,7 +43,7 @@ export default function Navbar() {
             </nav>
             <Link
               to="/"
-              className="lg:hidden text-[20px] leading-[24px] font-normal text-[#4F4742]"
+              className="lg:hidden text-[24px] leading-[26px] font-normal text-[#4F4742] whitespace-nowrap"
             >
               HavAntar Studio
             </Link>
@@ -93,17 +93,17 @@ export default function Navbar() {
           open ? "max-h-[calc(100vh-68px)] opacity-100" : "max-h-0 opacity-0"
         )}
       >
-        <nav className="flex flex-col gap-6 px-6 py-10">
+        <nav className="flex flex-col gap-4 px-4 md:px-6 py-6">
           {navLinks.map((l) => (
             <Link
               key={l.label}
               to={l.to}
-              className="text-3xl uppercase text-[#4F4742] font-medium underline-lr w-fit"
+              className="text-[24px] leading-[26px] uppercase text-[#4F4742] font-medium underline-lr w-fit"
             >
               {l.label}
             </Link>
           ))}
-          <LinkButton to="/contact" variant="filled" className="w-fit mt-4">
+          <LinkButton to="/contact" variant="filled" className="w-full md:w-fit mt-0 text-center">
             Contact Us
           </LinkButton>
         </nav>

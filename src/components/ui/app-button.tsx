@@ -30,11 +30,16 @@ export function Button({
 }: CommonProps & ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button className={cn(base, styles[variant], className)} {...rest}>
-      <span className="lbl orig flex items-center gap-2">
+      {/* Hidden placeholder to size the button */}
+      <span className="flex items-center gap-2 opacity-0 pointer-events-none" aria-hidden>
         {children}
         {icon}
       </span>
-      <span className="lbl copy flex items-center gap-2" aria-hidden>
+      <span className="lbl orig absolute inset-0 flex items-center justify-center gap-2">
+        {children}
+        {icon}
+      </span>
+      <span className="lbl copy absolute inset-0 flex items-center justify-center gap-2" aria-hidden>
         {children}
         {icon}
       </span>
@@ -52,11 +57,16 @@ export function LinkButton({
 }: CommonProps & Omit<LinkProps, "children">) {
   return (
     <Link to={to} className={cn(base, styles[variant], className)} {...rest}>
-      <span className="lbl orig flex items-center gap-2">
+      {/* Hidden placeholder to size the button */}
+      <span className="flex items-center gap-2 opacity-0 pointer-events-none" aria-hidden>
         {children}
         {icon}
       </span>
-      <span className="lbl copy flex items-center gap-2" aria-hidden>
+      <span className="lbl orig absolute inset-0 flex items-center justify-center gap-2">
+        {children}
+        {icon}
+      </span>
+      <span className="lbl copy absolute inset-0 flex items-center justify-center gap-2" aria-hidden>
         {children}
         {icon}
       </span>

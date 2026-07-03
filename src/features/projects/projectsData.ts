@@ -10,7 +10,11 @@ export type Project = {
   surface: string;
   address: string;
   description: string;
+  image: string;
   tallCenter?: boolean;
+  subtitle?: string;
+  subdescription?: string;
+  detailImages?: string[];
 };
 
 export const projects: Project[] = [
@@ -18,29 +22,40 @@ export const projects: Project[] = [
     slug: "harmony-living-space",
     title: "Harmony Living Space",
     category: "Residential",
-    location: "Abu Dhabi",
-    year: "2025",
-    owner: "Al Marzooqi Family",
-    budget: "€2.4 million",
-    services: "Residential Architecture, Interior Design",
-    surface: "520 m²",
-    address: "Abu Dhabi, 2025",
+    location: "Sydney",
+    year: "2026",
+    owner: "Erik and Lena Nordvik",
+    budget: "€2.5 million",
+    services: "Residential Architecture",
+    surface: "350 m²",
+    address: "Sydney, 2026",
     description:
-      "A serene family residence balancing warm materiality with quiet restraint — sculpted volumes, natural stone, and layered light.",
+      "Harmony Living Space, completed in 2026 in Sydney, is a refined residential project that emphasizes natural light, open layouts, and modern simplicity — thoughtfully designed to reflect a calm and comfortable living experience.",
+    image: "/images/project/project-1.webp",
+    subtitle: "A serene residential retreat, blending modern elegance with cozy comfort.",
+    subdescription: "Our Harmony Living Space in Sydney is designed to maximize natural light and open-plan living, creating a home that feels spacious yet inviting. The interiors combine warm textures with minimalist sophistication.",
+    detailImages: [
+      "/images/project_details/project_details-image-1(1).webp",
+      "/images/project_details/project_details-image-1(2).webp",
+      "/images/project_details/project_details-image-1(3).webp",
+      "/images/project_details/project_details-image-1(4).webp",
+      "/images/project_details/project_details-image-1(5).webp",
+    ],
   },
   {
     slug: "executive-office-interior",
     title: "Executive Office Interior",
     category: "Commercial",
-    location: "Dubai",
+    location: "Toronto",
     year: "2025",
     owner: "North Ridge Capital",
     budget: "€1.8 million",
     services: "Commercial Interior Design",
     surface: "410 m²",
-    address: "DIFC, Dubai, 2025",
+    address: "Toronto, 2025",
     description:
       "A refined executive floor built around choreography of light, timber, and hand-finished plaster surfaces.",
+    image: "/images/project/project-2.webp",
     tallCenter: true,
   },
   {
@@ -55,7 +70,8 @@ export const projects: Project[] = [
     surface: "650 m²",
     address: "Dubai, 2026",
     description:
-      "A dynamic commercial environment that encourages collaboration and flexibility — designed to foster creativity through open, adaptable spaces.",
+      "A dynamic commercial environment that encourages collaboration and flexibility.",
+    image: "/images/project/project-2.webp",
   },
   {
     slug: "luxury-villa",
@@ -70,6 +86,7 @@ export const projects: Project[] = [
     address: "Emirates Hills, Dubai, 2024",
     description:
       "A quietly monumental villa organised around a stone courtyard, layered water, and framed desert horizons.",
+    image: "/images/project/project-1.webp",
   },
   {
     slug: "retail-experience-center",
@@ -84,6 +101,7 @@ export const projects: Project[] = [
     address: "West Bay, Doha, 2025",
     description:
       "A retail stage set — brushed metal, veined marble, and warm oak arranged around a central sculptural staircase.",
+    image: "/images/project/project-2.webp",
   },
   {
     slug: "serenity-villa",
@@ -98,6 +116,7 @@ export const projects: Project[] = [
     address: "Al Hamra, RAK, 2024",
     description:
       "A low-slung coastal home threaded with reflecting pools, deep terraces, and a soft palette of lime and travertine.",
+    image: "/images/project/project-1.webp",
   },
 ];
 

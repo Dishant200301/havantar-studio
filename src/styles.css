@@ -10,7 +10,7 @@
   --color-ink-deep: #504843;
   --color-beige-footer: #e2dacf;
   --font-inter: "Inter", system-ui, sans-serif;
-  --font-display: "Inter", system-ui, sans-serif;
+  --font-display: "Inter Display", "Inter Display Placeholder", "Inter", system-ui, sans-serif;
 
   --color-background: var(--color-bg);
   --color-foreground: var(--color-ink);
@@ -59,12 +59,12 @@
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
-.animate-marquee { animation: marquee 40s linear infinite; }
-.animate-marquee-slow { animation: marquee 90s linear infinite; }
+.animate-marquee { animation: marquee 40s linear infinite; will-change: transform; }
+.animate-marquee-slow { animation: marquee 5s linear infinite; will-change: transform; }
 
 /* Button hover text-up */
 .btn-textup { position: relative; display: inline-block; overflow: hidden; }
-.btn-textup > .lbl { display: block; transition: transform .45s cubic-bezier(.7,0,.3,1); }
+.btn-textup > .lbl { transition: transform .45s cubic-bezier(.7,0,.3,1); }
 .btn-textup > .lbl.copy { position: absolute; inset: 0; transform: translateY(100%); }
 .btn-textup:hover > .lbl.orig { transform: translateY(-100%); }
 .btn-textup:hover > .lbl.copy { transform: translateY(0); }
