@@ -4,27 +4,33 @@ import { LinkButton } from "@/components/ui/app-button";
 
 export default function CTA() {
   return (
-    <section className="px-6 lg:px-16 py-16">
+    <section className="px-4 lg:px-8 xl:px-8 py-16">
       <motion.div
         initial={{ y: 60, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 1, ease: [0.7, 0, 0.15, 1] }}
-        className="relative rounded-2xl overflow-hidden min-h-[540px] flex flex-col justify-between p-8 lg:p-14"
+        className="relative rounded-2xl overflow-hidden h-[550px] lg:h-[600px] flex flex-col justify-between p-6 lg:p-8"
       >
-        <div className="absolute inset-0 ph" />
-        <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/30 to-black/10" />
+        <img
+          src="/images/common/CTA.webp"
+          alt="Timeless Architecture"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/45 to-black/20 md:bg-linear-to-r md:from-black/75 md:via-black/35 md:to-black/10" />
 
-        <FadeIn delay={0.2} className="relative max-w-2xl text-[#F0EBE6]">
-          <p className="uppercase tracking-tight" style={{ fontSize: "clamp(28px,4vw,48px)", lineHeight: 1.1 }}>
+        <FadeIn delay={0.2} className="relative w-full text-center lg:text-left md:max-w-[600px] mx-auto lg:mx-0 lg:max-w-[480px] text-[#F0EBE6]">
+          <p className="font-display font-medium text-[20px] sm:text-[22px] md:text-[24px] leading-[26px] sm:leading-[28px] md:leading-[31px] uppercase tracking-normal">
             "Architecture should speak of its time and place, but yearn for timelessness."
           </p>
-          <div className="mt-4 uppercase text-[12px] tracking-[0.15em] opacity-80">— Frank Gehry</div>
+          <div className="mt-4 font-display font-bold text-[12px] leading-[16px] text-white/58 uppercase tracking-[0.15em]">
+            Frank Gehry
+          </div>
         </FadeIn>
 
-        <FadeIn delay={0.5} className="relative flex flex-col sm:flex-row gap-3 sm:justify-end mt-8">
-          <LinkButton to="/contact" variant="filled">Book Consultation</LinkButton>
+        <FadeIn delay={0.5} className="relative flex flex-row flex-wrap gap-3 justify-center lg:justify-end mt-8">
           <LinkButton to="/projects" variant="glass">View Projects</LinkButton>
+          <LinkButton to="/contact" variant="light">Book Consultation</LinkButton>
         </FadeIn>
       </motion.div>
     </section>

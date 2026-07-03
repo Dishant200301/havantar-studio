@@ -5,13 +5,13 @@ import type { ReactNode, ButtonHTMLAttributes } from "react";
 type Variant = "filled" | "light" | "glass";
 
 const base =
-  "btn-textup inline-flex items-center justify-center rounded-full uppercase font-inter font-normal px-4 py-3 text-[14px] leading-[15px] tracking-[0.02em] transition-colors disabled:opacity-60 disabled:cursor-not-allowed whitespace-nowrap";
+  "btn-textup inline-flex items-center justify-center rounded-full uppercase font-inter font-normal px-4.5 py-3.5 text-[14px] leading-[15px] tracking-[0.02em] transition-colors disabled:opacity-60 disabled:cursor-not-allowed whitespace-nowrap";
 
 const styles: Record<Variant, string> = {
   filled: "bg-[#504843] text-[#F0EBE6] hover:bg-[#3f3835]",
   light: "bg-[#F0EBE6] text-[#4F4742] hover:bg-[#e6dfd6]",
   glass:
-    "bg-white/10 text-[#F0EBE6] border border-white/25 backdrop-blur-md hover:bg-white/20",
+    "bg-white/10 text-[#F0EBE6] backdrop-blur-md hover:bg-white/20",
 };
 
 type CommonProps = {
