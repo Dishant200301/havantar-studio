@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HavAntar Studio</title>
+    <meta
+      name="description"
+      content="HavAntar Studio designs residential and commercial spaces that elevate how people live, work, and interact with their environment."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link id="favicon-link" rel="icon" type="image/x-icon" href="/favicon_dark.ico" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/favicon_dark.ico"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/favicon_light.ico"
+      media="(prefers-color-scheme: dark)"
+    />
+    <script>
+      (function () {
+        const matcher = window.matchMedia("(prefers-color-scheme: dark)");
+        function updateFavicon(e) {
+          const link = document.getElementById("favicon-link");
+          if (link) {
+            link.href = e.matches ? "/favicon_light.ico" : "/favicon_dark.ico";
+          }
+        }
+        matcher.addEventListener("change", updateFavicon);
+        updateFavicon(matcher);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
