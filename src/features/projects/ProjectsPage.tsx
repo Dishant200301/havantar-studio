@@ -6,6 +6,8 @@ import ProjectCard from "./ProjectCard";
 import { projects } from "./projectsData";
 import { cn } from "@/lib/utils";
 import MarqueeStrip from "../home/MarqueeStrip";
+import CTA from "../home/CTA";
+import ContactPage from "../contact/ContactPage";
 
 const filters = ["All", "Residential", "Commercial"] as const;
 
@@ -93,6 +95,8 @@ export default function ProjectsPage() {
           </AnimatePresence>
         </motion.div>
       </section>
+      <CTA/>
+      <ContactPage/>
     </>
   );
 }

@@ -57,6 +57,15 @@ export const projects: Project[] = [
       "A refined executive floor built around choreography of light, timber, and hand-finished plaster surfaces.",
     image: "/images/project/project-2.webp",
     tallCenter: true,
+    subtitle: "A refined executive floor built around choreography of light, timber, and hand-finished surfaces.",
+    subdescription: "The Executive Office Interior project in Toronto focuses on rich timber, soft acoustics, and dynamic layouts to create a workspace that inspires leadership and collaboration. The design emphasizes subtle transitions between private offices and shared workspaces.",
+    detailImages: [
+      "/images/project/project-2.webp",
+      "/images/project/hero.webp",
+      "/images/project_details/project_details-image-1(2).webp",
+      "/images/project_details/project_details-image-1(3).webp",
+      "/images/project_details/project_details-image-1(4).webp",
+    ],
   },
   {
     slug: "modern-co-working-space",
@@ -72,6 +81,15 @@ export const projects: Project[] = [
     description:
       "A dynamic commercial environment that encourages collaboration and flexibility.",
     image: "/images/project/project-2.webp",
+    subtitle: "A dynamic commercial environment that encourages collaboration and flexibility.",
+    subdescription: "Located in the vibrant business center of Dubai, this co-working space merges social hubs and quiet zones with sustainable materials, providing a flexible, high-performance environment for remote teams and creative thinkers.",
+    detailImages: [
+      "/images/project/project-2.webp",
+      "/images/home/about/about_image-1.webp",
+      "/images/home/about/about_image-2.webp",
+      "/images/project_details/project_details-image-1(1).webp",
+      "/images/project_details/project_details-image-1(5).webp",
+    ],
   },
   {
     slug: "luxury-villa",

@@ -4,13 +4,13 @@ import { LinkButton } from "@/components/ui/app-button";
 
 export default function CTA() {
   return (
-    <section className="px-4 lg:px-8 xl:px-8 py-16">
+    <section className="mx-auto max-w-[1600px] px-4 lg:px-6 xl:px-8 py-10">
       <motion.div
         initial={{ y: 60, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 1, ease: [0.7, 0, 0.15, 1] }}
-        className="relative rounded-2xl overflow-hidden h-[550px] lg:h-[600px] flex flex-col justify-between p-6 lg:p-8"
+        className="relative rounded-[10px] overflow-hidden h-[550px] lg:h-[600px] flex flex-col justify-between p-6 lg:p-8"
       >
         <img
           src="/images/common/CTA.webp"

@@ -9,7 +9,7 @@ const base =
 
 const styles: Record<Variant, string> = {
   filled: "bg-[#504843] text-[#F0EBE6] hover:bg-[#3f3835]",
-  light: "bg-[#F0EBE6] text-[#4F4742] hover:bg-[#e6dfd6]",
+  light: "bg-[#F0EBE6] text-[#4F4742]",
   glass:
     "bg-white/10 text-[#F0EBE6] backdrop-blur-md hover:bg-white/20",
 };

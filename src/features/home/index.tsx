@@ -14,6 +14,7 @@ export default function Home() {
   return (
     <>
       <SEO title="Architecture & Interior Design Studio" />
+      <main className="overflow-hidden">
       <Hero />
       <About />
       <MarqueeStrip />
@@ -22,8 +23,9 @@ export default function Home() {
       <ProjectExpertise />
       <Process />
       <Testimonials />
-      <Works />
+      {/* <Works /> */}
       <CTA />
+      </main>
     </>
   );
 }
