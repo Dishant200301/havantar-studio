@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { AnimatePresence, motion } from "framer-motion";
 import { Toaster } from "@/modules/core/components/ui/sonner";
 import Navbar from "@/modules/core/components/Navbar";
 import Footer from "@/modules/core/components/Footer";
@@ -17,9 +18,23 @@ import NotFound from "@/modules/core/pages/NotFoundPage";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const PageTransition = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -16 }}
+      transition={{ duration: 0.35, ease: [0.215, 0.61, 0.355, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
 export default function App() {
   const lenisRef = useRef<Lenis | null>(null);
   const location = useLocation();
+  const prevPathname = useRef(location.pathname);
 
   useEffect(() => {
     // Initialize Lenis with smooth options
@@ -46,7 +61,7 @@ export default function App() {
     };
   }, []);
 
-  // Handle scroll resets and anchors via Lenis when routing changes
+  // Handle anchor/hash scroll via Lenis
   useEffect(() => {
     if (!lenisRef.current) return;
 
@@ -56,30 +71,45 @@ export default function App() {
         const el = document.getElementById(id);
         if (el) {
           lenisRef.current?.scrollTo(el, {
-            offset: -68, // Offset to prevent covering byNavbar
+            offset: -68, // Offset to prevent covering by Navbar
             duration: 1.2,
           });
         }
       });
-    } else {
-      lenisRef.current.scrollTo(0, { immediate: true });
     }
+  }, [location.hash]);
+
+  // Handle immediate scroll reset only when clicking a link to the same page
+  useEffect(() => {
+    if (prevPathname.current === location.pathname && !location.hash) {
+      lenisRef.current?.scrollTo(0, { immediate: true });
+    }
+    prevPathname.current = location.pathname;
   }, [location.pathname, location.hash]);
 
   return (
     <div className="min-h-screen bg-bg text-ink">
       <Navbar />
       <main className="relative">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/projects/:slug" element={<ProjectDetailsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/cookie-policy" element={<CookiePolicy />} />
-          <Route path="/terms-and-conditions" element={<TermsConditions />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AnimatePresence
+          mode="wait"
+          onExitComplete={() => {
+            window.scrollTo(0, 0);
+            lenisRef.current?.scrollTo(0, { immediate: true });
+            ScrollTrigger.refresh();
+          }}
+        >
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+            <Route path="/projects" element={<PageTransition><ProjectsPage /></PageTransition>} />
+            <Route path="/projects/:slug" element={<PageTransition><ProjectDetailsPage /></PageTransition>} />
+            <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
+            <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
+            <Route path="/cookie-policy" element={<PageTransition><CookiePolicy /></PageTransition>} />
+            <Route path="/terms-and-conditions" element={<PageTransition><TermsConditions /></PageTransition>} />
+            <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+          </Routes>
+        </AnimatePresence>
       </main>
       <Footer />
       <Toaster />

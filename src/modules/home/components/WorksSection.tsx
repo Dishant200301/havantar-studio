@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projects } from "@/modules/core/data/projectsData";
-import { AnimatePresence, motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,14 +12,11 @@ export default function Works() {
   const bgTextRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activeIndexRef = useRef(0);
-
   const [dimensions, setDimensions] = useState({
     cardWidth: 320,
-    cardHeight: 400,
-    radius: 370,
-    perspective: 1600,
+    cardHeight: 230,
+    radius: 360,
+    perspective: 1400,
   });
 
   // Handle responsiveness and dynamic scaling
@@ -30,26 +26,26 @@ export default function Works() {
       if (w < 640) {
         // Mobile
         setDimensions({
-          cardWidth: 190,
-          cardHeight: 240,
-          radius: 220,
-          perspective: 1000,
+          cardWidth: 170,
+          cardHeight: 122,
+          radius: 195,
+          perspective: 900,
         });
       } else if (w < 1024) {
         // Tablet
         setDimensions({
-          cardWidth: 260,
-          cardHeight: 325,
-          radius: 300,
-          perspective: 1300,
+          cardWidth: 240,
+          cardHeight: 172,
+          radius: 270,
+          perspective: 1100,
         });
       } else {
         // Desktop
         setDimensions({
-          cardWidth: 340,
-          cardHeight: 425,
-          radius: 390,
-          perspective: 1800,
+          cardWidth: 320,
+          cardHeight: 230,
+          radius: 360,
+          perspective: 1400,
         });
       }
     };
@@ -69,13 +65,10 @@ export default function Works() {
     const cards = cardsRef.current;
     const radius = dimensions.radius;
 
-    if (!sec || !cylinder || !bgText) return;
+    if (!sec || !cylinder) return;
 
     // Helper to calculate and apply 3D positioning and styling
     const updateCardStyles = (currentRotation: number) => {
-      let maxCos = -2;
-      let bestIdx = 0;
-
       cards.forEach((card, index) => {
         if (!card) return;
 
@@ -100,26 +93,15 @@ export default function Works() {
         card.style.filter = `brightness(${brightness}) contrast(1.05)`;
         card.style.opacity = `${opacity}`;
         card.style.zIndex = `${zIndex}`;
-
-        // Find the active front-facing card
-        if (cosVal > maxCos) {
-          maxCos = cosVal;
-          bestIdx = index;
-        }
       });
-
-      // Update text label on focus index jumps
-      if (bestIdx !== activeIndexRef.current) {
-        activeIndexRef.current = bestIdx;
-        setActiveIndex(bestIdx);
-      }
     };
 
     // Apply initial layout state
     updateCardStyles(0);
 
     const ctx = gsap.context(() => {
-      // Background large typography scroll motion
+      // Background large typography scroll motion (Commented out)
+      /*
       gsap.fromTo(
         bgText,
         { y: "30vh", rotate: -180, opacity: 0.01 },
@@ -136,14 +118,15 @@ export default function Works() {
           },
         },
       );
+      */
 
-      // Tilted 3D cylinder rotation
+      // Straight 3D cylinder rotation
       gsap.fromTo(
         cylinder,
-        { rotateX: -12, rotateY: 0 },
+        { rotationX: 0, rotationY: 0 },
         {
-          rotateX: -12,
-          rotateY: -360,
+          rotationX: 0,
+          rotationY: -360,
           ease: "none",
           scrollTrigger: {
             trigger: sec,
@@ -153,8 +136,7 @@ export default function Works() {
             pin: true,
             anticipatePin: 1,
             onUpdate: (self) => {
-              // Extract real animated rotation to maintain the scrub's smooth interpolation/lag
-              const currentRotation = gsap.getProperty(cylinder, "rotateY") as number;
+              const currentRotation = self.progress * -360;
               updateCardStyles(currentRotation);
             },
           },
@@ -170,8 +152,8 @@ export default function Works() {
       ref={secRef}
       className="works-section relative bg-[#090807] overflow-hidden w-full h-screen"
     >
-      {/* Backdrop Typography */}
-      <div
+      {/* Backdrop Typography (Commented out) */}
+      {/* <div
         ref={bgTextRef}
         className="works-bg-text absolute inset-0 flex items-center justify-center pointer-events-none select-none"
         style={{ willChange: "transform" }}
@@ -186,7 +168,7 @@ export default function Works() {
         >
           WORKS
         </span>
-      </div>
+      </div> */}
 
       {/* 3D Scene Viewport */}
       <div
@@ -196,13 +178,13 @@ export default function Works() {
           transformStyle: "preserve-3d",
         }}
       >
-        {/* Tilted Cylinder container */}
+        {/* Straight Cylinder container */}
         <div
           ref={cylinderRef}
           className="relative flex items-center justify-center"
           style={{
             transformStyle: "preserve-3d",
-            transform: "rotateX(-12deg)",
+            transform: "rotateX(0deg)",
             width: `${dimensions.cardWidth}px`,
             height: `${dimensions.cardHeight}px`,
           }}
@@ -215,7 +197,7 @@ export default function Works() {
               ref={(el) => {
                 cardsRef.current[i] = el;
               }}
-              className="work-card absolute overflow-hidden rounded-[12px] bg-[#121110] shadow-2xl border border-white/5 pointer-events-auto"
+              className="work-card absolute overflow-hidden rounded-lg bg-[#121110] shadow-2xl border border-white/5 pointer-events-auto"
               style={{
                 width: `${dimensions.cardWidth}px`,
                 height: `${dimensions.cardHeight}px`,
@@ -238,32 +220,6 @@ export default function Works() {
             </Link>
           ))}
         </div>
-      </div>
-
-      {/* Project Label Overlay */}
-      <div className="absolute bottom-10 left-0 right-0 flex flex-col items-center justify-center text-center pointer-events-none px-6">
-        <AnimatePresence mode="wait">
-          {projects[activeIndex] && (
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col items-center"
-            >
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#f0ebe6]/40 font-medium font-display mb-1.5">
-                {projects[activeIndex].category} Architecture
-              </span>
-              <h3 className="text-[18px] sm:text-[22px] md:text-[24px] uppercase tracking-widest text-[#f0ebe6] font-display font-medium">
-                {projects[activeIndex].title}
-              </h3>
-              <span className="text-[11px] sm:text-[12px] tracking-widest text-[#f0ebe6]/50 font-display mt-1">
-                {projects[activeIndex].location} &bull; {projects[activeIndex].year}
-              </span>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </section>
   );
