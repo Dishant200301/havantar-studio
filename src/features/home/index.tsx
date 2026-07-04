@@ -15,16 +15,16 @@ export default function Home() {
     <>
       <SEO title="Architecture & Interior Design Studio" />
       <main className="overflow-hidden">
-      <Hero />
-      <About />
-      <MarqueeStrip />
-      <FeaturedProjects />
-      <Services />
-      <ProjectExpertise />
-      <Process />
-      <Testimonials />
-      {/* <Works /> */}
-      <CTA />
+        <Hero />
+        <About />
+        <MarqueeStrip />
+        <FeaturedProjects />
+        <Services />
+        <ProjectExpertise />
+        <Process />
+        <Testimonials />
+        <Works />
+        <CTA />
       </main>
     </>
   );
