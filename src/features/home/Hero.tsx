@@ -134,7 +134,7 @@ export default function Hero() {
               alt="Luxury living room panels and sofa"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/10" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/35 to-black/10" />
 
             {/* Main Content inside Center Card */}
             <div
@@ -185,7 +185,7 @@ export default function Hero() {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 1.5, ease: "linear" }}
-                  className="w-full h-[1px] bg-[#F0EBE6] mt-8 opacity-45 origin-center"
+                  className="w-full h-px bg-[#F0EBE6] mt-8 opacity-45 origin-center"
                 />
               </div>
             </div>

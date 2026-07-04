@@ -61,7 +61,7 @@ export default function Process() {
               />
               
               {/* Default dark overlay gradient with backdrop blur at bottom */}
-              <div className="absolute bottom-0 left-0 right-0 h-[110px] bg-gradient-to-t from-black/80 via-black/40 to-transparent backdrop-blur-[3.75px] transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-[110px] bg-linear-to-t from-black/80 via-black/40 to-transparent backdrop-blur-[3.75px] transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" />
 
               {/* Hover Backdrop Blur Overlay */}
               <div className="absolute inset-0 bg-black/45 backdrop-blur-[2.75px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none" />
@@ -70,7 +70,7 @@ export default function Process() {
               <img
                 src="/images/home/process/hover-image.svg"
                 alt=""
-                className="absolute top-1/2 left-1/2 w-4/5 h-4/5 object-contain pointer-events-none transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] -translate-x-1/2 translate-y-[60%] opacity-0 group-hover:-translate-x-1/2 group-hover:-translate-y-1/2 group-hover:opacity-35"
+                className="absolute top-1/2 left-1/2 w-4/5 h-4/5 object-contain pointer-events-none transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] -translate-x-1/2 translate-y-[60%] opacity-0 group-hover:-translate-x-1/2 group-hover:-translate-y-1/2 group-hover:opacity-35"
               />
 
               {/* Unified Icon Container: transitions from top-right to center-top on hover */}
@@ -96,7 +96,7 @@ export default function Process() {
               </div>
 
               {/* Hover Uppercase Tag (top-right, slides up/fades in) */}
-              <div className="absolute top-4 right-4 text-[16px] font-normal text-white/90 uppercase font-inter opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] z-10 pointer-events-none">
+              <div className="absolute top-4 right-4 text-[16px] font-normal text-white/90 uppercase font-inter opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] z-10 pointer-events-none">
                 {s.tag}
               </div>
 

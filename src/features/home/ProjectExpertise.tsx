@@ -88,7 +88,7 @@ export default function ProjectExpertise() {
                 alt={c.title}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/50 group-hover:from-black/90 group-hover:via-black/50 group-hover:to-black/60 transition-all duration-500" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/30 to-black/50 group-hover:from-black/90 group-hover:via-black/50 group-hover:to-black/60 transition-all duration-500" />
               
               {/* Default bottom-left (Fades & translates out to bottom on hover) */}
               <div className="absolute bottom-4 md:bottom-8 left-4 md:left-8 right-4 md:right-8 text-[#F0EBE6] transition-all duration-500 group-hover:translate-y-16 group-hover:opacity-0">
@@ -103,7 +103,7 @@ export default function ProjectExpertise() {
               {/* Hover content (Slides down from top to center) */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-[#F0EBE6] pointer-events-none">
                 {/* Number & Title */}
-                <div className="opacity-0 -translate-y-16 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-[750ms] ease-[cubic-bezier(0.25,1,0.5,1)] delay-[50ms]">
+                <div className="opacity-0 -translate-y-16 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-750 ease-[cubic-bezier(0.25,1,0.5,1)] delay-[50ms]">
                   <div className="font-display font-medium text-[60px] sm:text-[80px] md:text-[100px] leading-[70px] sm:leading-[90px] md:leading-[110px] text-white">
                     {c.num}
                   </div>

@@ -26,7 +26,7 @@ export default function ProjectCard({ project, tall, className, imageClassName, 
           alt={project.title}
           className={cn(
             "w-full object-cover transition-transform duration-900 ease-[cubic-bezier(.16,1,0.3,1)] group-hover:scale-[1.04]",
-            imageClassName || "aspect-[3/3]"
+            imageClassName || "aspect-3/3"
           )}
         />
       </div>

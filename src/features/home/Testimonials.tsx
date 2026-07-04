@@ -127,7 +127,7 @@ export default function Testimonials() {
                 onClick={() => setI(idx)}
                 whileTap={{ scale: 0.95 }}
                 className={cn(
-                  "relative w-14 h-14 sm:w-[74px] sm:h-[74px] rounded-[6px] overflow-hidden transition-all duration-300 cursor-pointer",
+                  "relative w-14 h-14 sm:w-[74px] sm:h-[74px] rounded-sm overflow-hidden transition-all duration-300 cursor-pointer",
                   i === idx ? "opacity-100" : "opacity-70 hover:opacity-100"
                 )}
               >

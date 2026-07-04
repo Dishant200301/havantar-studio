@@ -220,7 +220,7 @@ export default function Services() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setActive(null)}
-                className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4"
+                className="fixed inset-0 z-100 bg-black/60 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4"
               >
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -233,7 +233,7 @@ export default function Services() {
                   {/* Modal Header Image */}
                   <div className="relative h-40 sm:h-60 w-full rounded-[10px] overflow-hidden shrink-0">
                     <img src={active.image} alt={active.title} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/35 to-black/10" />
                     
                     <button
                       onClick={() => setActive(null)}
@@ -241,19 +241,19 @@ export default function Services() {
                     >
                       <X className="w-4 h-4" />
                     </button>
-
+                    
                     <div className="absolute bottom-4 left-4 right-4 text-white">
                       <h3 className="uppercase text-[18px] sm:text-[24px] font-medium leading-[22px] sm:leading-[26px] tracking-tight font-inter">
                         {active.modalTitle}
                       </h3>
                       <div className="mt-2 flex flex-col sm:flex-row sm:items-center gap-x-3 gap-y-1.5 text-[#f0ebe6] text-[12px] sm:text-[14px] font-normal font-inter leading-[15px] sm:leading-[17px]">
                         <div className="flex items-center gap-1.5">
-                          <Clock className="w-3.5 h-3.5 sm:w-4 h-4 text-[#f0ebe6]" />
+                          <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#f0ebe6]" />
                           <span>{active.hours}</span>
                         </div>
                         <span className="hidden sm:inline text-[#cccccc]">|</span>
                         <div className="flex items-center gap-1.5">
-                          <MapPin className="w-3.5 h-3.5 sm:w-4 h-4 text-[#f0ebe6]" />
+                          <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#f0ebe6]" />
                           <span>{active.location}</span>
                         </div>
                       </div>
@@ -273,7 +273,7 @@ export default function Services() {
                       <div className="flex flex-col gap-2">
                         {active.features.map((feature) => (
                           <div key={feature} className="flex items-start gap-3 font-inter font-normal text-[12px] sm:text-[13px] leading-[15px] sm:leading-[16px] text-[#453E3A]">
-                            <Check className="w-3.5 h-3.5 sm:w-4 h-4 text-[#453E3A] shrink-0 mt-0.5" />
+                            <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#453E3A] shrink-0 mt-0.5" />
                             <span>{feature}</span>
                           </div>
                         ))}
@@ -282,7 +282,7 @@ export default function Services() {
                   </div>
 
                   {/* Modal Footer */}
-                  <div className="mt-auto p-2 rounded-[12px] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4 shrink-0">
+                  <div className="mt-auto p-2 rounded-lg flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4 shrink-0">
                     <div className="flex flex-row sm:flex-col justify-between items-center sm:items-start px-1 sm:px-0">
                       <span className="font-inter font-normal text-[11px] sm:text-[12px] leading-[13px] sm:leading-[14px] text-[#453E3A] tracking-wider">Starting From</span>
                       <span className="font-inter font-medium text-[14px] sm:text-[16px] leading-[17px] sm:leading-[19px] text-[#453E3A] mt-0.5">{active.price}</span>
