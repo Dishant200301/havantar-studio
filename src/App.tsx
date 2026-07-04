@@ -3,17 +3,17 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Toaster } from "@/components/ui/sonner";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import Home from "@/features/home";
-import ProjectsPage from "@/features/projects/ProjectsPage";
-import ProjectDetailsPage from "@/features/projectDetails/ProjectDetailsPage";
-import ContactPage from "@/features/contact/ContactPage";
-import PrivacyPolicy from "@/features/legal/PrivacyPolicy";
-import CookiePolicy from "@/features/legal/CookiePolicy";
-import TermsConditions from "@/features/legal/TermsConditions";
-import NotFound from "@/features/notFound/NotFound";
+import { Toaster } from "@/modules/core/components/ui/sonner";
+import Navbar from "@/modules/core/components/Navbar";
+import Footer from "@/modules/core/components/Footer";
+import Home from "@/modules/home/pages/HomePage";
+import ProjectsPage from "@/modules/projects/pages/ProjectsPage";
+import ProjectDetailsPage from "@/modules/projects/pages/ProjectDetailsPage";
+import ContactPage from "@/modules/contact/pages/ContactPage";
+import PrivacyPolicy from "@/modules/legal/pages/PrivacyPolicyPage";
+import CookiePolicy from "@/modules/legal/pages/CookiePolicyPage";
+import TermsConditions from "@/modules/legal/pages/TermsConditionsPage";
+import NotFound from "@/modules/core/pages/NotFoundPage";
 
 gsap.registerPlugin(ScrollTrigger);
 
